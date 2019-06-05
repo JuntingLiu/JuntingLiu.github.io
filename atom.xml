@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://juntingliu.github.io/</id>
     <title>Junting</title>
-    <updated>2019-06-05T09:03:34.754Z</updated>
+    <updated>2019-06-05T09:07:51.215Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://juntingliu.github.io/"/>
     <link rel="self" href="https://juntingliu.github.io//atom.xml"/>
@@ -16,7 +16,11 @@
         <link href="https://juntingliu.github.io//post/kuai-ji-zuo-yong-yu-bang-ding">
         </link>
         <updated>2019-06-04T09:02:10.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="var-声明及变量提升hoisting-机制">var 声明及变量提升（Hoisting） 机制</h3>
+        <summary type="html"><![CDATA[<p>知识点梳理，最近开始阅读《深入理解 ES6》，给自己一点动力，看完一章同步更新一片阅读笔记。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>知识点梳理，最近开始阅读《深入理解 ES6》，给自己一点动力，看完一章同步更新一片阅读笔记。</p>
+<!-- more -->
+<h3 id="var-声明及变量提升hoisting-机制">var 声明及变量提升（Hoisting） 机制</h3>
 <p>ES6 之前 <code>JavaScript</code> 只有&quot;函数作用域”和“全局作用域”，通过关键字 <code>var</code> 声明变量，无论在哪里声明的，都会被当成在当前作用域顶部声明的变量，这就是常说的提升（Hoisting）机制。</p>
 <pre><code class="language-javascript">function getValue(condition) {
   //var value; // 实际执行时（JavaScript 预编译阶段） var 声明提升到函数作用域顶部

@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://juntingliu.github.io//favicon.ico?v=1559725410119">
+<link rel="shortcut icon" href="https://juntingliu.github.io//favicon.ico?v=1559725664173">
 <link rel="stylesheet" href="https://juntingliu.github.io//styles/main.css">
 
 
@@ -29,7 +29,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://juntingliu.github.io/">
-        <img src="https://juntingliu.github.io//images/avatar.png?v=1559725410119" class="site-logo">
+        <img src="https://juntingliu.github.io//images/avatar.png?v=1559725664173" class="site-logo">
         <h1 class="site-title">Junting</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -98,7 +98,9 @@
               </div>
             
             <div class="post-content">
-              <h3 id="var-声明及变量提升hoisting-机制">var 声明及变量提升（Hoisting） 机制</h3>
+              <p>知识点梳理，最近开始阅读《深入理解 ES6》，给自己一点动力，看完一章同步更新一片阅读笔记。</p>
+<!-- more -->
+<h3 id="var-声明及变量提升hoisting-机制">var 声明及变量提升（Hoisting） 机制</h3>
 <p>ES6 之前 <code>JavaScript</code> 只有&quot;函数作用域”和“全局作用域”，通过关键字 <code>var</code> 声明变量，无论在哪里声明的，都会被当成在当前作用域顶部声明的变量，这就是常说的提升（Hoisting）机制。</p>
 <pre><code class="language-javascript">function getValue(condition) {
   //var value; // 实际执行时（JavaScript 预编译阶段） var 声明提升到函数作用域顶部
