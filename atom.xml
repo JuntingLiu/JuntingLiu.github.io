@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://juntingliu.github.io/</id>
+    <title>Junting</title>
+    <updated>2019-06-05T09:00:02.142Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://juntingliu.github.io/"/>
+    <link rel="self" href="https://juntingliu.github.io//atom.xml"/>
+    <subtitle>Enjoy your life with your heart. Self-discipline gives me freedom.</subtitle>
+    <logo>https://juntingliu.github.io//images/avatar.png</logo>
+    <icon>https://juntingliu.github.io//favicon.ico</icon>
+    <rights>All rights reserved 2019, Junting</rights>
+</feed>
