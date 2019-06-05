@@ -1,22 +1,104 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://juntingliu.github.io/</id>
-    <title>Junting</title>
-    <updated>2019-06-05T09:03:34.754Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://juntingliu.github.io/"/>
-    <link rel="self" href="https://juntingliu.github.io//atom.xml"/>
-    <subtitle>Enjoy your life with your heart. Self-discipline gives me freedom.</subtitle>
-    <logo>https://juntingliu.github.io//images/avatar.png</logo>
-    <icon>https://juntingliu.github.io//favicon.ico</icon>
-    <rights>All rights reserved 2019, Junting</rights>
-    <entry>
-        <title type="html"><![CDATA[块级作用域绑定]]></title>
-        <id>https://juntingliu.github.io//post/kuai-ji-zuo-yong-yu-bang-ding</id>
-        <link href="https://juntingliu.github.io//post/kuai-ji-zuo-yong-yu-bang-ding">
-        </link>
-        <updated>2019-06-04T09:02:10.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="var-声明及变量提升hoisting-机制">var 声明及变量提升（Hoisting） 机制</h3>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>块级作用域绑定 | Junting</title>
+<meta name="description" content="Enjoy your life with your heart. Self-discipline gives me freedom.">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://juntingliu.github.io//favicon.ico?v=1559725410119">
+<link rel="stylesheet" href="https://juntingliu.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://juntingliu.github.io/">
+        <img src="https://juntingliu.github.io//images/avatar.png?v=1559725410119" class="site-logo">
+        <h1 class="site-title">Junting</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      Enjoy your life with your heart. Self-discipline gives me freedom.
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/JuntingLiu" target="_blank">Junting</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">块级作用域绑定</h2>
+            <div class="post-date">2019-06-04</div>
+            
+              <div class="feature-container" style="background-image: url('https://juntingliu.github.io//post-images/kuai-ji-zuo-yong-yu-bang-ding.gif')">
+              </div>
+            
+            <div class="post-content">
+              <h3 id="var-声明及变量提升hoisting-机制">var 声明及变量提升（Hoisting） 机制</h3>
 <p>ES6 之前 <code>JavaScript</code> 只有&quot;函数作用域”和“全局作用域”，通过关键字 <code>var</code> 声明变量，无论在哪里声明的，都会被当成在当前作用域顶部声明的变量，这就是常说的提升（Hoisting）机制。</p>
 <pre><code class="language-javascript">function getValue(condition) {
   //var value; // 实际执行时（JavaScript 预编译阶段） var 声明提升到函数作用域顶部
@@ -163,6 +245,46 @@ console.log(window.RegExp === RegExp); // false
 </code></pre>
 <h3 id="最佳实践">最佳实践</h3>
 <p>定义声明变量时，默认使用 <code>const</code> ，只有确定需要改变变量的值时使用 <code>let</code>。</p>
-]]></content>
-    </entry>
-</feed>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://juntingliu.github.io//tag/0aFIW5tUu" class="tag">
+                    深入理解 ES6
+                  </a>
+                
+              </div>
+            
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
