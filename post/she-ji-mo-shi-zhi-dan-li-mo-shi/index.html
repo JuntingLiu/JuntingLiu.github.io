@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>设计模式之单例模式 | Junting</title>
+<meta name="description" content="Enjoy your life with your heart. Self-discipline gives me freedom.">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://juntingliu.github.io//favicon.ico?v=1559784714438">
+<link rel="stylesheet" href="https://juntingliu.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://juntingliu.github.io/">
+        <img src="https://juntingliu.github.io//images/avatar.png?v=1559784714438" class="site-logo">
+        <h1 class="site-title">Junting</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      Enjoy your life with your heart. Self-discipline gives me freedom.
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/JuntingLiu" target="_blank">Junting</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">设计模式之单例模式</h2>
+            <div class="post-date">2019-06-05</div>
+            
+              <div class="feature-container" style="background-image: url('https://juntingliu.github.io//post-images/she-ji-mo-shi-zhi-dan-li-mo-shi.gif')">
+              </div>
+            
+            <div class="post-content">
+              <p>很早项目中就使用过单例模式进行开发，但用的最多的还是命名空间对象来规避重复命名，方便统一管理，其实单例模式还有很多其他的作用，今天就特地学习了一下。</p>
+<!-- more -->
+<h1 id="单例模式">单例模式</h1>
+<h2 id="概念">概念</h2>
+<p>单例模式（Singleton）：又被称为单体模式，是只允许实例化一次的对象类, 保证一个类只有一个实例，并提供一个访问它的全局访问点。</p>
+<h2 id="作用">作用</h2>
+<p>单例模式可以让代码更加易懂，可以有效避免定义变量或则方法名时出现重复；通过单例模式来管理代码库的各个模块，使功能模块井井有条；也可以通过单例实现无法修改的静态变量。</p>
+<h2 id="通过几个实例来认识单例">通过几个实例来认识单例</h2>
+<h3 id="通过单例模式实现一个代码库的管理">通过单例模式实现一个代码库的管理</h3>
+<pre><code class="language-javascript">const JT = {
+  Util: {
+    util_method () {}
+  },
+  // 工具模块
+  Tool: {
+    tool_method () {}
+  },
+  // ajax 模块
+  Ajax: {
+      get () {},
+      post () {}
+  },
+  // 其他
+  others: {}
+}
+
+JT.Util.util_method();
+</code></pre>
+<h3 id="通过单例模式实现无法修改的静态变量">通过单例模式实现无法修改的静态变量</h3>
+<pre><code class="language-javascript">// 无法修改的静态变量
+var CONSTANT = (function () {
+  // 私有变量
+  var constant = {
+    MAX_NUM: 100,
+    MIN_NUM: 1,
+    COUNT: 1000
+  };
+  return {
+    // 取值器
+    get (name) {
+      return constant[name] ? constant[name] : null;
+    }
+  }
+})();
+
+CONSTANT.get('MAX_NUM'); // 100
+</code></pre>
+<h3 id="惰性单例">惰性单例</h3>
+<p>延迟创建单例对象。</p>
+<pre><code class="language-javascript">// 惰性单例
+var LazySingle = (function () {
+  // 单例实例引用
+  var _instance = null;
+  // 单例
+  function Single() {
+    // 这里定义私有属性和方法
+    // ...
+    return  {
+      // 外部可访问的属性和方法
+      publicMethod: function () {},
+      publicProperty: '1.0'
+    }
+  }
+
+  // 返回单例
+  return function () {
+    if (!_instance) return _instance = new Single();
+    return _instance;
+  }
+})()
+</code></pre>
+<blockquote>
+<p>单例模式的实现通过 JavaScript 本身的一些特性作用域、闭包等来实现的。</p>
+</blockquote>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://juntingliu.github.io//tag/E0Jt2YMKp" class="tag">
+                    设计模式
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://juntingliu.github.io//post/kuai-ji-zuo-yong-yu-bang-ding">
+                  <h3 class="post-title">
+                    块级作用域绑定
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
